@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Results</title>
+</head>
+<body>
+    <h1>Your Performance Analysis</h1>
+    <ul>
+        {% for category, percentile in user_data %}
+            <li>{{ category.replace("_", " ").title() }}: {{ percentile|round(2) }} percentile</li>
+        {% endfor %}
+    </ul>
+    <h2>Spider Plot:</h2>
+    <img src="{{ url_for('static', filename='spider_plot.png') }}" alt="Spider Plot">
+</body>
+</html>
